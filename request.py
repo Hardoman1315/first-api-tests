@@ -7,7 +7,7 @@ class Request:
         self.url = url
         self.path = path
         self.headers = {'accept': 'application/json', 'Content-Type': 'application/json'}
-        self.method = {'get': requests.get, 'post': requests.post}
+        self.method = {'get': requests.get, 'post': requests.post, 'delete': requests.delete}
         self.data = 0
         self.response = 0
 

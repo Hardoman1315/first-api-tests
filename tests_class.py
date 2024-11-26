@@ -7,6 +7,7 @@ class TestCase:
         self.ID = str()
         self.response = str()
 
+
     def create_animal(self, name: str ='Olaf') -> str:
         """
         Создание нового животного через API-запрос
@@ -35,6 +36,7 @@ class TestCase:
         self.ID = self.response.json()['id']
         return self.ID
 
+
     def find_animal(self, animal_id: str) -> dict:
         """
         Метод ищет животное по id
@@ -44,3 +46,13 @@ class TestCase:
         url = 'pet/' + str(animal_id)
         self.response = self.request.send_request('get', url)
         return self.response.json()
+
+
+    def remove_animal(self, animal_id: str) -> None:
+        """
+        Метод удаляет животное по его id
+        :param animal_id: id животного
+        :return: None
+        """
+        url = 'pet/' + str(animal_id)
+        self.response = self.request.send_request('delete', url)
